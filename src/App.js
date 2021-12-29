@@ -7,14 +7,18 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProjectForm from "./pages/Project/Create";
 import ProjectDetail from "./pages/Project/Detail";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 //componenets
 
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <Router>
+      <Router>
+        <Sidebar />
+        <div className="container">
+          <Navbar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="login" element={<Login />} />
@@ -22,8 +26,8 @@ function App() {
             <Route path="project/create" element={<ProjectForm />} />
             <Route path="project/:id" element={<ProjectDetail />} />
           </Routes>
-        </Router>
-      </div>
+        </div>
+      </Router>
     </div>
   );
 }
