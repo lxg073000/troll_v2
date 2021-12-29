@@ -69,7 +69,43 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-/\*
-firebase 9.6, treeshaking
+# Firebase 9.6
 
-\*/
+- Uses a new API surface designed where Object Oriented approach for method calls is replaced by Functional Method exports to facilitate tree-shaking (removal of unused code) to make your web app as small and fast as possible.
+
+# global auth
+
+## AuthContext
+
+- create context to store global user state of {user, authIsReady}
+- authReducer updates state based on dispatching LOGIN, LOGOUT, AUTH_IS_READY (firebase initial auth check)
+
+# Custom React Hooks
+
+## AuthHooks
+
+- useAuthContext used to get the current user
+
+## UseCollection
+
+- get real-time updates on a specific collection and an optional query and ordering
+- returns documents and error
+
+## useFirestore
+
+- uses firestoreReducer to to update initial state {documentRef:string, isPending:bool, error:obj, success:bool}
+- returns addDocument(), deleteDocument(), initial state : response
+
+## useLogin
+
+- logs in user with email and password
+- returns login(),
+
+## useLogout
+
+- logs out current user, returns logout()
+
+## useSignup
+
+- signs up user with email, password, and displayName
+- return signup()
