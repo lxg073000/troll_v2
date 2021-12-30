@@ -4,12 +4,17 @@ import "./Sidebar.css";
 import dashboard_icon from "../assets/dashboard_icon.svg";
 import add_icon from "../assets/add_icon.svg";
 
+import Avatar from "./Avatar/Avatar";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 export default function Sidebar() {
+  const { user } = useAuthContext();
   return (
     <div className="sidebar">
       <div className="sidebar-content">
         <div className="user">
-          <p>Hey User</p>
+          <Avatar photoURL={user.photoURL} />
+          <p>{user.displayName}</p>
         </div>
         <nav className="links">
           <ul>

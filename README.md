@@ -147,10 +147,12 @@ await updateDoc(docRef, { online: false });
 - Page views perform redirects for authenticated or unauthenticated routes via reactRouter v6 Navigate JSX
 - Conditionally render Navbar Links
 
+# Application Data
+
+## Users
+
+- Online status, photoURL
+
 ## Projects
 
 - CRUD Project
-
-```
-
-```
