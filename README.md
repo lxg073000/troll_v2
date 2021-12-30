@@ -171,4 +171,5 @@ await updateDoc(docRef, { online: false });
 
 ## Projects
 
-- CRUD Project
+- Create Projects by assigning a name, details, category, and collaborators
+  - Renders collaborators from realtime list of all users in database

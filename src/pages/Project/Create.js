@@ -1,5 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Select from "react-select";
+import { useCollection } from "../../hooks/useCollection";
 import "./Create.css";
+
+const categories = [
+  {
+    value: "development",
+    label: "Development",
+  },
+  {
+    value: "design",
+    label: "Design",
+  },
+  {
+    value: "sales",
+    label: "Sales",
+  },
+  {
+    value: "marketing",
+    label: "Marketing",
+  },
+];
 
 export default function Create() {
   const [name, setName] = useState("");
@@ -8,9 +29,23 @@ export default function Create() {
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
 
+  const { documents: _users } = useCollection("users");
+  const [userOptions, setUserOptions] = useState([]);
+
+  // attatch a listen to the users collection to populate userOptions
+  useEffect(() => {
+    if (!_users) return;
+
+    // map over _users documents and populate _userOptions and update state
+    const _userOptions = _users.map((user) => {
+      return { value: user.id, label: user.displayName };
+    });
+    setUserOptions(_userOptions);
+  }, [_users]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ name, details, dueDate, category, ...assignedUsers });
+    console.log({ name, details, dueDate, assignedUsers }, category.value);
   };
   return (
     <div className="create-form">
@@ -21,7 +56,7 @@ export default function Create() {
         }}
       >
         <label>
-          name:
+          Project name:
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}
@@ -29,7 +64,7 @@ export default function Create() {
           />
         </label>
         <label>
-          details:
+          Project details:
           <textarea
             type="text"
             onChange={(e) => setDetails(e.target.value)}
@@ -37,7 +72,7 @@ export default function Create() {
           ></textarea>
         </label>
         <label>
-          due date:
+          Set due date:
           <input
             type="date"
             onChange={(e) => setDueDate(e.target.value)}
@@ -45,23 +80,22 @@ export default function Create() {
           />
         </label>
         <label>
-          category:
-          <input
-            type="text"
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}
+          Project category:
+          <Select
+            options={categories}
+            onChange={(option) => setCategory(option)}
           />
         </label>
         <label>
-          project members:
-          <input
-            type="select"
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}
+          Collaborate with:
+          <Select
+            onChange={(option) => setAssignedUsers(option)}
+            options={userOptions}
+            isMulti
           />
         </label>
         <button className="btn" onClick={handleSubmit}>
-          Create Project
+          Add Project
         </button>
       </form>
     </div>
