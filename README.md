@@ -142,6 +142,10 @@ const docRef = await doc(db, `users/${user.uid}`);
 await updateDoc(docRef, { online: false });
 ```
 
+## Authentication Guards & Redirects
+
+- Page views perform redirects for authenticated or unauthenticated routes
+
 ## Projects
 
 - CRUD Project
