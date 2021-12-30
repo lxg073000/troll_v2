@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import troll from "../assets/troll.png";
 
+import { useLogout } from "../hooks/useLogout";
+
 export default function Navbar() {
+  const { logout, error, isPending } = useLogout();
   return (
     <div className="navbar">
       <ul>
@@ -18,9 +21,19 @@ export default function Navbar() {
           <Link to="signup">Signup</Link>
         </li>
         <li>
-          <button className="btn">Logout</button>
+          {isPending && (
+            <button className="btn" disabled>
+              logging out
+            </button>
+          )}
+          {!isPending && (
+            <button className="btn" onClick={logout}>
+              Logout
+            </button>
+          )}
         </li>
       </ul>
+      {error && <div className="error">{error}</div>}
     </div>
   );
 }
