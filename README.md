@@ -116,6 +116,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # MVPs
 
+## User Online Status
+
+- Firebase update user document syncs online field when logging in/out
+
+#### **`useSignup.js`**
+
+```javascript
+const _docRef = await doc(db, `users/${res.user.uid}`);
+const _data = { online: true, displayName, photoURL: snapURL };
+setDoc(_docRef, _data);
+```
+
+#### **`useLogin.js`**
+
+```javascript
+const docRef = await doc(db, `users/${res.user.uid}`);
+updateDoc(docRef, { online: true });
+```
+
+#### **`useLogout.js`**
+
+```javascript
+const docRef = await doc(db, `users/${user.uid}`);
+await updateDoc(docRef, { online: false });
+```
+
 ## Projects
 
 - CRUD Project
+
+```
+
+```

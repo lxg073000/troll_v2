@@ -15,7 +15,7 @@ export const useLogout = () => {
     setIsPending(true);
 
     try {
-      // update online:bool for currentUser doc in db to false
+      // update online status
       const docRef = await doc(db, `users/${user.uid}`);
       await updateDoc(docRef, { online: false });
 
