@@ -144,7 +144,7 @@ await updateDoc(docRef, { online: false });
 
 ## Authentication Guards & Redirects
 
-- Page views perform redirects for authenticated or unauthenticated routes
+- Page views perform redirects for authenticated or unauthenticated routes via reactRouter v6 Navigate JSX
 
 ## Projects
 
