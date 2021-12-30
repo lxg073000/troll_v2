@@ -21,7 +21,7 @@ export const useLogin = () => {
       // dispatch login action
       await dispatch({ type: "LOGIN", payload: res.user });
 
-      // update online:bool for currentUser doc in db to false
+      // update online:bool for currentUser doc in db to true
       const docRef = await doc(db, `users/${res.user.uid}`);
       updateDoc(docRef, { online: true });
 
