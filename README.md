@@ -119,6 +119,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## User Online Status
 
 - Firebase update user document syncs online field when logging in/out
+- Fetch and display all users and indicate if they are currently online
+
+#### **`OnlineUsers.js`**
+
+```javascript
+{
+  users &&
+    users.map((user) => (
+      <div key={user.id} className="user-list-item">
+        {user.online && <span className="online-user"></span>}
+        <span>{user.displayName}</span>
+        <Avatar photoURL={user.photoURL} />
+      </div>
+    ));
+}
+```
 
 #### **`useSignup.js`**
 

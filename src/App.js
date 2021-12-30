@@ -15,6 +15,7 @@ import ProjectForm from "./pages/Project/Create";
 import ProjectDetail from "./pages/Project/Detail";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import OnlineUsers from "./components/OnlineUsers/OnlineUsers";
 
 //componenets
 
@@ -51,6 +52,7 @@ function App() {
               />
             </Routes>
           </div>
+          {user && <OnlineUsers />}
         </Router>
       )}
     </div>
