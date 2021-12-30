@@ -173,3 +173,4 @@ await updateDoc(docRef, { online: false });
 
 - Create Projects by assigning a name, details, category, and collaborators
   - Renders collaborators from realtime list of all users in database
+  - Include server side form error handling for required fields

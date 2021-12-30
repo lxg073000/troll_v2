@@ -27,7 +27,8 @@ export default function Create() {
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [category, setCategory] = useState("");
-  const [assignedUsers, setAssignedUsers] = useState([]);
+  const [collaborators, setCollaborators] = useState([]);
+  const [formError, setFormError] = useState(null);
 
   const { documents: _users } = useCollection("users");
   const [userOptions, setUserOptions] = useState([]);
@@ -45,7 +46,13 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ name, details, dueDate, assignedUsers }, category.value);
+    setFormError(null);
+
+    if (!category) {
+      setFormError("Please select a project category");
+      return;
+    }
+    console.log({ name, details, dueDate, collaborators }, category.value);
   };
   return (
     <div className="create-form">
@@ -58,6 +65,7 @@ export default function Create() {
         <label>
           Project name:
           <input
+            required
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
@@ -66,6 +74,7 @@ export default function Create() {
         <label>
           Project details:
           <textarea
+            required
             type="text"
             onChange={(e) => setDetails(e.target.value)}
             value={details}
@@ -74,6 +83,7 @@ export default function Create() {
         <label>
           Set due date:
           <input
+            required
             type="date"
             onChange={(e) => setDueDate(e.target.value)}
             value={dueDate}
@@ -89,14 +99,13 @@ export default function Create() {
         <label>
           Collaborate with:
           <Select
-            onChange={(option) => setAssignedUsers(option)}
+            onChange={(option) => setCollaborators(option)}
             options={userOptions}
             isMulti
           />
         </label>
-        <button className="btn" onClick={handleSubmit}>
-          Add Project
-        </button>
+        <button className="btn">Add Project</button>
+        {formError && <div className="error">{formError}</div>}
       </form>
     </div>
   );
