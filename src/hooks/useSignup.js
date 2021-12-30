@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { auth, storage } from "../firebase.config";
-import { ref, uploadBytes } from "firebase/storage";
+import { auth, storage, db } from "../firebase.config";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
@@ -27,10 +28,15 @@ export const useSignup = () => {
       const snapURL = await uploadBytes(
         ref(storage, uploadPath),
         displayImage
-      ).then((snap) => ref(snap).getDownloadURL);
+      ).then((snap) => getDownloadURL(ref(snap.ref)));
 
       // add displayName and photoURL to firebase User document
       await updateProfile(res.user, { displayName, photoURL: snapURL });
+
+      // create a user document in firestore db
+      const _docRef = await doc(db, `users/${res.user.uid}`);
+      const _data = { online: true, displayName, photoURL: snapURL };
+      setDoc(_docRef, _data);
 
       // dispatch login action
       dispatch({ type: "LOGIN", payload: res.user });

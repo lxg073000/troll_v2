@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSignup } from "../hooks/useSignup";
 import "./Signup.css";
 
 export default function Signup() {
@@ -7,12 +8,12 @@ export default function Signup() {
   const [displayName, setDisplayName] = useState("");
   const [displayImage, setDisplayImage] = useState(null);
   const [displayImageError, setdisplayImageError] = useState(null);
+  const { signup, isPending, error } = useSignup();
 
   const handleFileChange = (e) => {
     setDisplayImage(null);
 
     let selected = e.target.files[0];
-    console.log(selected);
     if (!selected) {
       setdisplayImageError("please select an image");
       return;
@@ -27,12 +28,11 @@ export default function Signup() {
     }
     setdisplayImageError(null);
     setDisplayImage(selected);
-    console.log("display image updated");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, displayName, displayImage);
+    signup(email, password, displayName, displayImage);
   };
 
   return (
@@ -70,9 +70,18 @@ export default function Signup() {
         <input type="file" onChange={handleFileChange} />
         {displayImageError && <div className="error">{displayImageError}</div>}
       </label>
-      <button className="btn" onClick={(e) => handleSubmit(e)}>
-        Sign up
-      </button>
+      {!isPending && (
+        <button className="btn" onClick={(e) => handleSubmit(e)}>
+          Sign up
+        </button>
+      )}
+      {isPending && (
+        <button className="btn" disabled>
+          loading
+        </button>
+      )}
+
+      {error && <div className="error">{error}</div>}
     </form>
   );
 }
