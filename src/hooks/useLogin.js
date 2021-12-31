@@ -30,7 +30,6 @@ export const useLogin = () => {
         setError(null);
       }
     } catch (err) {
-      debugger;
       if (!isCancelled) {
         setError(err.message);
         setIsPending(false);

@@ -1,37 +1,26 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import { Timestamp } from "firebase/firestore";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { useCollection } from "../../hooks/useCollection";
+import { useFirestore } from "../../hooks/useFirestore";
+import { categories } from "../../constants/data";
 import "./Create.css";
-
-const categories = [
-  {
-    value: "development",
-    label: "Development",
-  },
-  {
-    value: "design",
-    label: "Design",
-  },
-  {
-    value: "sales",
-    label: "Sales",
-  },
-  {
-    value: "marketing",
-    label: "Marketing",
-  },
-];
 
 export default function Create() {
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [category, setCategory] = useState("");
-  const [collaborators, setCollaborators] = useState([]);
+  const [userOptions, setUserOptions] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState([]);
   const [formError, setFormError] = useState(null);
 
+  const { user } = useAuthContext();
   const { documents: _users } = useCollection("users");
-  const [userOptions, setUserOptions] = useState([]);
+  const { addDocument, response } = useFirestore("projects");
+  const navigate = useNavigate();
 
   // attatch a listen to the users collection to populate userOptions
   useEffect(() => {
@@ -39,12 +28,12 @@ export default function Create() {
 
     // map over _users documents and populate _userOptions and update state
     const _userOptions = _users.map((user) => {
-      return { value: user.id, label: user.displayName };
+      return { value: user, label: user.displayName };
     });
     setUserOptions(_userOptions);
   }, [_users]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
 
@@ -52,7 +41,30 @@ export default function Create() {
       setFormError("Please select a project category");
       return;
     }
-    console.log({ name, details, dueDate, collaborators }, category.value);
+
+    const project = {
+      name,
+      details,
+      category: category.value,
+      dueDate: Timestamp.fromDate(new Date(dueDate)),
+      comment: [],
+      createdBy: {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        id: user.uid,
+      },
+      collaborators: selectedUsers.map((c) => {
+        return {
+          displayName: c.value.displayName,
+          photoURL: c.value.photoURL,
+          id: c.value.id,
+        };
+      }),
+    };
+    await addDocument(project);
+    // conditionally redirect or render error after awaiting addDocument response update
+    if (response.success === true) navigate("/", { replace: "true" });
+    if (response.error) setFormError(response.error.message);
   };
   return (
     <div className="create-form">
@@ -99,12 +111,13 @@ export default function Create() {
         <label>
           Collaborate with:
           <Select
-            onChange={(option) => setCollaborators(option)}
+            onChange={(option) => setSelectedUsers(option)}
             options={userOptions}
             isMulti
           />
         </label>
-        <button className="btn">Add Project</button>
+        {response.isPending && <button className="btn">Adding Project</button>}
+        {!response.isPending && <button className="btn">Add Project</button>}
         {formError && <div className="error">{formError}</div>}
       </form>
     </div>
