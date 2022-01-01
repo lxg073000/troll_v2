@@ -174,3 +174,5 @@ await updateDoc(docRef, { online: false });
 - Create Projects by assigning a name, details, category, and collaborators
   - Renders collaborators from realtime list of all users in database
   - Include server side form error handling for required field
+- Read Projects from firestore database and display in list form
+  - Details page for each project id

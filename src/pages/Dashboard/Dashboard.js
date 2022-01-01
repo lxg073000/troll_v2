@@ -1,6 +1,6 @@
 import React from "react";
 import { useCollection } from "../../hooks/useCollection";
-import List from "../Project/List";
+import List from "../../components/Project/List";
 import "./Dashboard.css";
 
 export default function Dashboard() {
