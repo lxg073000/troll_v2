@@ -33,6 +33,12 @@ export default function Create() {
     setUserOptions(_userOptions);
   }, [_users]);
 
+  // Observe response state for redirect & error handling
+  useEffect(() => {
+    if (response.success === true) navigate("/");
+    if (response.error) setFormError(response.error.message);
+  }, [response]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
@@ -62,9 +68,8 @@ export default function Create() {
       }),
     };
     await addDocument(project);
-    // conditionally redirect or render error after awaiting addDocument response update
-    if (response.success === true) navigate("/", { replace: "true" });
-    if (response.error) setFormError(response.error.message);
+    // if (response.success === true) navigate("/", { replace: "true" });
+    // if (response.error) setFormError(response.error.message);
   };
   return (
     <div className="create-form">
