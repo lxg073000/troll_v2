@@ -180,3 +180,4 @@ await updateDoc(docRef, { online: false });
 ### Comments
 
 - Users can create comments using the ProjectComments component
+- ProjectComments are displayed from realtime firebase collection

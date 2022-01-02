@@ -22,7 +22,7 @@ export default function Detail() {
       {project && (
         <>
           <Summary project={project} />
-          <ProjectComments />
+          <ProjectComments project={project} />
         </>
       )}
     </div>

@@ -4,7 +4,6 @@ import Avatar from "../Avatar/Avatar";
 import "./List.css";
 
 export default function List({ projects }) {
-  console.log(projects);
   return (
     <div className="list project">
       {!projects.length && <p>Get started by adding some projects!</p>}

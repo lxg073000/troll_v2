@@ -53,7 +53,7 @@ export default function Create() {
       details,
       category: category.value,
       dueDate: Timestamp.fromDate(new Date(dueDate)),
-      comment: [],
+      comments: [],
       createdBy: {
         displayName: user.displayName,
         photoURL: user.photoURL,
