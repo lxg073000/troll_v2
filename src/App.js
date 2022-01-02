@@ -43,11 +43,11 @@ function App() {
                 element={!user ? <Signup /> : <Navigate to="/" />}
               />
               <Route
-                path="project/create"
+                path="projects/create"
                 element={user ? <ProjectForm /> : <Navigate to="/" />}
               />
               <Route
-                path="project/:id"
+                path="projects/:id"
                 element={user ? <ProjectDetail /> : <Navigate to="/" />}
               />
             </Routes>
