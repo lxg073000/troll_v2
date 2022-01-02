@@ -27,7 +27,7 @@ export default function ProjectComments({ project }) {
     <div className="project-comments" onSubmit={handleSubmit}>
       <h4>Project Comments</h4>
       <ul className="comment-list">
-        {project.comments.length &&
+        {!!project.comments.length &&
           project.comments.map((comment) => (
             <li key={comment.id}>
               <div className="comment-creator">
@@ -41,7 +41,7 @@ export default function ProjectComments({ project }) {
             </li>
           ))}
       </ul>
-      <form className="add-comment">
+      <form className="add-comment" onSubmit={handleSubmit}>
         <label>
           <span>Add new comment:</span>
           <textarea
