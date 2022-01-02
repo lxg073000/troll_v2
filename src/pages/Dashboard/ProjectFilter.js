@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-
 const filters = ["all", "mine", "development", "design", "marketing", "sales"];
-export default function ProjectFilter() {
-  const [currentFilter, setCurrentFilter] = useState("all");
+
+export default function ProjectFilter({ changeFilter, currentFilter }) {
   const handleClick = (filter) => {
-    console.log({ filter });
-    setCurrentFilter(filter);
+    changeFilter(filter);
   };
   const isActive = (filter) => {
     return filter === currentFilter ? "active" : "";
