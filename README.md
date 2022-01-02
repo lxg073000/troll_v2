@@ -176,3 +176,7 @@ await updateDoc(docRef, { online: false });
   - Include server side form error handling for required field
 - Read Projects from firestore database and display in list form
   - Details page for each project id
+
+### Comments
+
+- Users can create comments using the ProjectComments component

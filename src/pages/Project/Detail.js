@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import ProjectComments from "../../components/Project/ProjectComments";
+import Summary from "../../components/Project/Summary";
 import useDocument from "../../hooks/useDocument";
 import "./Detail.css";
 
@@ -16,13 +18,12 @@ export default function Detail() {
   if (error) return <p className="error">{error}</p>;
 
   return (
-    <div className="detail project">
+    <div className="project-details">
       {project && (
-        <ul>
-          <li>Category: {project.category}</li>
-          <li>Comments:</li>
-          <li>Collaborators:</li>
-        </ul>
+        <>
+          <Summary project={project} />
+          <ProjectComments />
+        </>
       )}
     </div>
   );
