@@ -182,3 +182,12 @@ await updateDoc(docRef, { online: false });
 
 - Users can create comments using the ProjectComments component
 - ProjectComments are displayed from realtime firebase collection
+
+# Firestore Rules
+
+- User Documents
+  - Validate auth to create & read
+  - Validate ownership to update
+- Project Documents
+  - Validate auth to create, read, update
+  - Validate ownership to delete
