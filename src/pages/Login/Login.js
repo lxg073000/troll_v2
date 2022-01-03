@@ -4,6 +4,7 @@ import "./Login.css";
 import { useLogin } from "../../hooks/useLogin";
 
 export default function Login() {
+  document.title = "Troll - Log in";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, isPending, error } = useLogin();

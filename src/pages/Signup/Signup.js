@@ -3,6 +3,7 @@ import { useSignup } from "../../hooks/useSignup";
 import "./Signup.css";
 
 export default function Signup() {
+  document.title = "Troll - Sign up";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import { Timestamp } from "firebase/firestore";
@@ -9,6 +9,7 @@ import { categories } from "../../constants/data";
 import "./Create.css";
 
 export default function Create() {
+  document.title = "Troll - Start a new project";
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -20,7 +21,8 @@ export default function Create() {
   const { user } = useAuthContext();
   const { documents: _users } = useCollection("users");
   const { addDocument, response } = useFirestore("projects");
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
+  const navigate = useRef(_navigate);
 
   // attatch a listen to the users collection to populate userOptions
   useEffect(() => {
@@ -73,7 +75,7 @@ export default function Create() {
   };
   return (
     <div className="create-form">
-      <h2 className="page-title">Create a new project</h2>
+      <h2 className="page-title">Start a new project</h2>
       <form
         onSubmit={(e) => {
           handleSubmit(e);

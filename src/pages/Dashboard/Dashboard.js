@@ -6,32 +6,36 @@ import ProjectFilter from "./ProjectFilter";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Dashboard() {
+  document.title = "Troll - Project Dashboard";
   const [currentFilter, setCurrentFilter] = useState("all");
   const { user } = useAuthContext();
   const { documents: projects, error } = useCollection("projects");
 
   const filteredProjects = projects?.filter((project) => {
-    switch (currentFilter) {
-      case "all":
-        return true;
-      case "mine":
-        let assignedToMe = false;
-        if (project.createdBy.id === user.uid) {
-          assignedToMe = true;
-        }
-        assignedToMe = project.collaborators.some((c) => c.id === user.uid);
-        return assignedToMe;
-      case "development":
-        return project.category === currentFilter;
-      case "design":
-        return project.category === currentFilter;
-      case "marketing":
-        return project.category === currentFilter;
-      case "sales":
-        return project.category === currentFilter;
-      default:
-        break;
-    }
+    const filterProjects = () => {
+      switch (currentFilter) {
+        case "all":
+          return true;
+        case "mine":
+          let assignedToMe = false;
+          if (project.createdBy.id === user.uid) {
+            assignedToMe = true;
+          }
+          assignedToMe = project.collaborators.some((c) => c.id === user.uid);
+          return assignedToMe;
+        case "development":
+          return project.category === currentFilter;
+        case "design":
+          return project.category === currentFilter;
+        case "marketing":
+          return project.category === currentFilter;
+        case "sales":
+          return project.category === currentFilter;
+        default:
+          break;
+      }
+    };
+    return filterProjects();
   });
 
   const changeFilter = (filter) => {

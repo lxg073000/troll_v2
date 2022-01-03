@@ -6,8 +6,8 @@ import useDocument from "../../hooks/useDocument";
 import "./Detail.css";
 
 export default function Detail() {
+  document.title = "Troll - Project Summary";
   const { id: projectID } = useParams();
-  console.log(projectID);
   const {
     document: project,
     error,

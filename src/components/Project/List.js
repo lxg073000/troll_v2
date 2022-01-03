@@ -6,7 +6,7 @@ import "./List.css";
 export default function List({ projects }) {
   return (
     <div className="list project">
-      {!projects.length && <p>Get started by adding some projects!</p>}
+      {!projects.length && <p className="empty">No projects were found.</p>}
       {projects.map((project) => (
         <Link to={`projects/${project.id}`} key={project.id}>
           <div className="top">
