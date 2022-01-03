@@ -24,8 +24,6 @@ const useDocument = (collection, id) => {
         setError(null);
       },
       (error) => {
-        debugger;
-        console.log(error.message);
         setError(error.message);
       }
     );

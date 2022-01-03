@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Summary({ project }) {
   const { user } = useAuthContext();
-  const { deleteDocument, response, error, isPending } =
-    useFirestore("projects");
+  const { deleteDocument } = useFirestore("projects");
   const navigate = useNavigate();
   const canDeleteProject = () => {
     if (user.uid === project.createdBy.id) {

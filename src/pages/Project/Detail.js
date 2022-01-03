@@ -13,7 +13,6 @@ export default function Detail() {
     error,
     isPending,
   } = useDocument("projects", projectID);
-  console.log({ project, error, isPending });
   if (isPending) return <p>Loading...</p>;
   if (error) return <p className="error">{error}</p>;
 
