@@ -4,6 +4,7 @@ import List from "../../components/Project/List";
 import "./Dashboard.css";
 import ProjectFilter from "./ProjectFilter";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import Song from "./Song";
 
 export default function Dashboard() {
   const [currentFilter, setCurrentFilter] = useState("all");

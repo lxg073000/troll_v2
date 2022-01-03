@@ -1,86 +1,40 @@
-# Getting Started with Create React App
+# Troll
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> SUMMARY: A productivity application for managing and monitoring goals
 
-## Available Scripts
+> TECHNOLOGIES: React.js, React Hooks, React Context, Javascript, Node.js, Firebase, HTML, CSS, and additional libraries...
 
-In the project directory, you can run:
+## React.js & React Hooks
 
-### `npm start`
+- useReducer
+- useContext
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Firebase 9.6
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- firebase/auth, firebase/storage, firebase/firestore
+- Manage Backend auth, database, storage, validations
+<!-- - Uses a new API surface designed where Object Oriented approach for method calls is replaced by Functional Method exports to facilitate tree-shaking (removal of unused code) to make your web app as small and fast as possible. -->
 
-### `npm test`
+## Additional Libraries
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React-Router-DOM 6.2
 
-### `npm run build`
+- The react-router-dom package contains bindings for using React Router in web applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### React-Select 5.2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- A flexible and beautiful Select Input control for ReactJS with multiselect, autocomplete, async and creatable support.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Date-FNS 2.28
 
-### `npm run eject`
+- Date-fns provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# Firebase 9.6
-
-- Uses a new API surface designed where Object Oriented approach for method calls is replaced by Functional Method exports to facilitate tree-shaking (removal of unused code) to make your web app as small and fast as possible.
-
-# global auth
-
-## AuthContext
+### AuthContext
 
 - create context to store global user state of {user, authIsReady}
 - authReducer updates state based on dispatching LOGIN, LOGOUT, AUTH_IS_READY (firebase initial auth check)
 
-# Custom React Hooks
+## React Hooks
 
 ## AuthHooks
 
@@ -109,10 +63,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - signs up user with email, password, and displayName
 - return signup()
-
-# React Router DOM v6
-
--
 
 # MVPs
 
