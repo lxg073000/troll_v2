@@ -176,7 +176,7 @@ await updateDoc(docRef, { online: false });
   - Include server side form error handling for required field
 - Read Projects from firestore database and display in list form
   - Details page for each project id
-- Filter Projects
+- Filter Projects by owner and category
 
 ### Comments
 
