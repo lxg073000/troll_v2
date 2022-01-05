@@ -147,6 +147,10 @@ section {
     margin-top: 5rem;
   }
 
+  .user-list h2 {
+    text-align: left;
+  }
+
   .sidebar.show {
     min-width: 300px;
     background: var(--green-light);
@@ -188,8 +192,5 @@ section {
   }
   .project.list {
     padding-bottom: 10em;
-  }
-  .footer {
-    justify-content: center;
   }
 }
