@@ -49,7 +49,7 @@ section {
 #scroll {
   position: fixed;
   bottom: 1rem;
-  transform: translateX(calc(50vw - 50%));
+  transform: translateX(calc(50vw - 50%)) translateY(-20px);
   z-index: 20000;
   filter: invert(1);
   cursor: pointer;

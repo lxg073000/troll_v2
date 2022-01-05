@@ -19,6 +19,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import OnlineUsers from "./components/OnlineUsers/OnlineUsers";
 import Splash from "./pages/Splash/Splash";
+import Footer from "./components/Footer/Footer";
 
 //componenets
 
@@ -90,6 +91,7 @@ function App() {
               />
             </Routes>
           </div>
+          <Footer />
           {user && <OnlineUsers />}
         </Router>
       )}
