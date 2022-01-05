@@ -78,7 +78,7 @@ export default function Splash() {
       </section>
 
       <section
-        className="feature"
+        className="feature email"
         style={{
           backgroundImage: `url(${images.img4})`,
         }}

@@ -61,14 +61,14 @@ section:not(.hero)::before {
 } */
 
 .box > h1 {
-  font-size: var(--step-4);
+  font-size: var(--step--1);
   line-height: 1;
   font-weight: bolder;
   color: beige;
 }
 .box > p {
   margin-top: 1.5em;
-  font-size: var(--step-0);
+  font-size: var(--step--4);
   font-weight: 300;
   line-height: 1.5;
 }
@@ -82,7 +82,7 @@ section:not(.hero)::before {
 }
 
 .hero h1 {
-  font-size: var(--step-hero-0);
+  font-size: var(--hero-step--1);
   font-family: var(--font-title);
   text-shadow: 2px 2px 8px #0000003b, -2px 0px 11px #00000024;
   color: #eee;
@@ -92,8 +92,16 @@ section:not(.hero)::before {
   font-family: var(--font-body);
   letter-spacing: 1px;
   word-spacing: 3px;
-  font-weight: 300;
+
+  color: var(--green-light);
+  text-shadow: 2px 2px 3px var(--green-dark), -1px -1px 1px var(--neutral-light);
+  font-weight: bolder;
+}
+
+.feature.email h1 {
   color: var(--primary2-color);
+  text-shadow: 0 0 12px #00000099, 2px 3px 2px #0000008a;
+  font-weight: bolder;
 }
 
 section.testimonal::after {
@@ -154,10 +162,93 @@ section.cta {
   border-radius: 4px;
   color: white;
   border: 1px solid var(--green-dark);
-  font-size: var(--step-1);
+  font-size: var(--step--2);
   margin: 1em;
   font-weight: bolder;
 }
 .cta > .box > .nav-link.btn:hover {
   background: var(--primary-color);
+}
+
+/* hero */
+:root {
+  --fluid-hero-min-width: 320;
+  --fluid-hero-max-width: 900;
+
+  --fluid-hero-screen: 100vw;
+  --fluid-hero-bp: calc(
+    (var(--fluid-hero-screen) - var(--fluid-hero-min-width) / 16 * 1rem) /
+      (var(--fluid-hero-max-width) - var(--fluid-hero-min-width))
+  );
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    --fluid-hero-screen: calc(var(--fluid-hero-max-width) * 1px);
+  }
+}
+
+:root {
+  --hero-f--2-min: 118.06;
+  --hero-f--2-max: 243.2;
+  --hero-step--2: calc(
+    ((var(--hero-f--2-min) / 16) * 1rem) +
+      (var(--hero-f--2-max) - var(--hero-f--2-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f--1-min: 141.67;
+  --hero-f--1-max: 304;
+  --hero-step--1: calc(
+    ((var(--hero-f--1-min) / 16) * 1rem) +
+      (var(--hero-f--1-max) - var(--hero-f--1-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-0-min: 170;
+  --hero-f-0-max: 380;
+  --hero-step-0: calc(
+    ((var(--hero-f-0-min) / 16) * 1rem) +
+      (var(--hero-f-0-max) - var(--hero-f-0-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-1-min: 204;
+  --hero-f-1-max: 475;
+  --hero-step-1: calc(
+    ((var(--hero-f-1-min) / 16) * 1rem) +
+      (var(--hero-f-1-max) - var(--hero-f-1-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-2-min: 244.8;
+  --hero-f-2-max: 593.75;
+  --hero-step-2: calc(
+    ((var(--hero-f-2-min) / 16) * 1rem) +
+      (var(--hero-f-2-max) - var(--hero-f-2-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-3-min: 293.76;
+  --hero-f-3-max: 742.19;
+  --hero-step-3: calc(
+    ((var(--hero-f-3-min) / 16) * 1rem) +
+      (var(--hero-f-3-max) - var(--hero-f-3-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-4-min: 352.51;
+  --hero-f-4-max: 927.73;
+  --hero-step-4: calc(
+    ((var(--hero-f-4-min) / 16) * 1rem) +
+      (var(--hero-f-4-max) - var(--hero-f-4-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-5-min: 423.01;
+  --hero-f-5-max: 1159.67;
+  --hero-step-5: calc(
+    ((var(--hero-f-5-min) / 16) * 1rem) +
+      (var(--hero-f-5-max) - var(--hero-f-5-min)) * var(--fluid-hero-bp)
+  );
+
+  --hero-f-6-min: 507.62;
+  --hero-f-6-max: 1449.58;
+  --hero-step-6: calc(
+    ((var(--hero-f-6-min) / 16) * 1rem) +
+      (var(--hero-f-6-max) - var(--hero-f-6-min)) * var(--fluid-hero-bp)
+  );
 }

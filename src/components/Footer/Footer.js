@@ -8,6 +8,7 @@ export default function Footer() {
       <ul className="footer-links">
         <li>
           <a
+            className="nav-link btn"
             href="https://www.linkedin.com/in/lernardgrigsby/"
             rel="noreferrer"
             target="_blank"
@@ -17,6 +18,7 @@ export default function Footer() {
         </li>
         <li>
           <a
+            className="nav-link btn"
             href="https://github.com/lxg073000"
             rel="noreferrer"
             target="_blank"
@@ -26,6 +28,7 @@ export default function Footer() {
         </li>
         <li>
           <a
+            className="nav-link btn"
             href="https://lernardgrigsby.github.io/"
             rel="noreferrer"
             target="_blank"

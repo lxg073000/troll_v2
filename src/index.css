@@ -15,7 +15,7 @@ body {
   font-family: Poppins, sans-serif;
   font-family: var(--font-body);
   margin: 0;
-  font-size: var(--step-body-0);
+  font-size: var(--step--5);
   background: var(--bg-color);
 }
 ul,

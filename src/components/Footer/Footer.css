@@ -5,7 +5,7 @@
   width: 100%;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   background: var(--neutral-black);
   padding: 0.5rem;
   color: var(--neutral-light);
@@ -13,6 +13,21 @@
 
 .footer-links {
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  max-width: 900px;
+  max-width: 373px;
+  margin-right: 3rem;
+}
+
+.footer-links .btn:hover {
+  color: var(--green-light);
+}
+
+.footer-links .nav-link {
+  background: var(--neutral-black);
+  padding: 6px 31px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  color: white;
+  border-color: var(--green-dark);
 }

@@ -1,16 +1,6 @@
 /* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
-  --step--2: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
-  --step--1: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
-  --step-0: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
-  --step-1: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
-  --step-2: clamp(1.89rem, 1.71rem + 0.89vw, 2.34rem);
-  --step-3: clamp(2.27rem, 2.01rem + 1.29vw, 2.93rem);
-  --step-4: clamp(2.72rem, 2.36rem + 1.83vw, 3.66rem);
-  --step-5: clamp(3.27rem, 2.75rem + 2.56vw, 4.58rem);
-  --step-body-0: clamp(1rem, 0.83rem + 0.86vw, 1.31rem);
-  --step-hero-0: clamp(7.38rem, 0.24rem + 35.69vw, 20.31rem);
   --font-title: "Aclonica", sans-serif;
   --font-banner: "Dosis", sans-serif;
   --font-body: "Fauna One", serif;
@@ -28,6 +18,81 @@
   --neutral-black: #141414;
   --neutral-mid: #8c7f4b;
   --neutral-light: #cec9b6;
+}
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 900;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f--6-min: 14.74;
+  --f--6-max: 15.73;
+  --step--6: calc(
+    ((var(--f--6-min) / 16) * 1rem) + (var(--f--6-max) - var(--f--6-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--5-min: 17.68;
+  --f--5-max: 19.66;
+  --step--5: calc(
+    ((var(--f--5-min) / 16) * 1rem) + (var(--f--5-max) - var(--f--5-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--4-min: 21.22;
+  --f--4-max: 24.58;
+  --step--4: calc(
+    ((var(--f--4-min) / 16) * 1rem) + (var(--f--4-max) - var(--f--4-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--3-min: 25.46;
+  --f--3-max: 30.72;
+  --step--3: calc(
+    ((var(--f--3-min) / 16) * 1rem) + (var(--f--3-max) - var(--f--3-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--2-min: 30.56;
+  --f--2-max: 38.4;
+  --step--2: calc(
+    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--1-min: 36.67;
+  --f--1-max: 48;
+  --step--1: calc(
+    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-0-min: 44;
+  --f-0-max: 60;
+  --step-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-1-min: 52.8;
+  --f-1-max: 75;
+  --step-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
 }
 
 .App {
@@ -48,12 +113,77 @@ section {
 
 #scroll {
   position: fixed;
-  bottom: 1rem;
-  transform: translateX(calc(50vw - 50%)) translateY(-20px);
+  left: 2rem;
+  bottom: 3rem;
+  /* transform: translateX(calc(50vw - 50%)) translateY(-20px); */
   z-index: 20000;
   filter: invert(1);
   cursor: pointer;
   border-radius: 50%;
   border: 1px solid;
   box-shadow: 1px 1px 5px black;
+}
+
+* > * {
+  transition: color 100ms ease;
+}
+
+.btn {
+  transition: background 100ms ease, color 100ms ease;
+}
+
+@media screen and (max-width: 500px) {
+  .App {
+    flex-direction: column-reverse;
+  }
+  .navbar {
+    top: 0;
+  }
+  .user-list .user-list-item {
+    flex-direction: row-reverse;
+  }
+  .user-list {
+    width: 100% !important;
+    margin-top: 5rem;
+  }
+
+  .sidebar.show {
+    min-width: 300px;
+    background: var(--green-light);
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #fff;
+    margin-top: 4rem;
+    display: grid;
+    place-content: center;
+    transform: translateX(calc(50vw - 50%));
+    position: fixed !important;
+    top: 8px;
+    left: -7px;
+    width: 100%;
+    height: 340px;
+    border-radius: 0 24px 24px 0;
+  }
+  .sidebar {
+    transform: translateX(calc(16px - 100%));
+    border-radius: 0 24px 24px 0;
+    min-width: 300px;
+    background: var(--green-light);
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #fff;
+    margin-top: 4rem;
+    display: grid;
+    place-content: center;
+    position: fixed !important;
+    top: 8px;
+    left: -7px;
+    width: 100%;
+    height: 340px;
+    cursor: pointer;
+    transition: color 100ms ease, transform 100ms ease !important;
+  }
+  .sidebar:not(.sidebar.show):hover {
+    transform: translateX(-267px);
+  }
 }
