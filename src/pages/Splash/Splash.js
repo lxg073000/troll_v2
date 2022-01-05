@@ -13,6 +13,10 @@ export default function Splash() {
     top <= height * 0.75 ? console.log("fade") : console.log({ top, height });
   }, [featureRef]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="splash">
       <section
@@ -85,7 +89,7 @@ export default function Splash() {
       >
         <div className="box">
           <h1>What’s holding you back? </h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>
               <span>
                 Tell our community of Trolls and find out if Troll is right for
@@ -102,7 +106,9 @@ export default function Splash() {
                 />
               </label>
             </label>
-            <button className="btn">Contact Us</button>
+            <button onClick={handleSubmit} className="btn">
+              Contact Us
+            </button>
           </form>
         </div>
       </section>

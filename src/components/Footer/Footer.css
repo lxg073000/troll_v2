@@ -5,7 +5,7 @@
   width: 100%;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   background: var(--neutral-black);
   padding: 0.5rem;
   color: var(--neutral-light);

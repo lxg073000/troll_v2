@@ -133,6 +133,12 @@ section.testimonal::after {
   top: 0;
   margin-bottom: 0;
 }
+.splash textarea {
+  padding: 1em;
+}
+.splash input[type="email"] {
+  text-align: center;
+}
 
 section.cta {
   background-blend-mode: color-dodge;

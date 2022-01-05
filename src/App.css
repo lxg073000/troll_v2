@@ -186,4 +186,10 @@ section {
   .sidebar:not(.sidebar.show):hover {
     transform: translateX(-267px);
   }
+  .project.list {
+    padding-bottom: 10em;
+  }
+  .footer {
+    justify-content: center;
+  }
 }
