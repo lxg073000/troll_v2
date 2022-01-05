@@ -1,11 +1,12 @@
 .sidebar {
   width: 300px;
   min-width: 300px;
-  background: var(--primary-color);
+  background: var(--green-light);
   min-height: 100vh;
   box-sizing: border-box;
   position: relative;
   color: #fff;
+  margin-top: 4rem;
 }
 .sidebar-content {
   position: fixed;

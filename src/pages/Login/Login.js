@@ -21,6 +21,7 @@ export default function Login() {
         <span>email:</span>
         <input
           required
+          placeholder="Email:"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -30,6 +31,7 @@ export default function Login() {
         <span>password:</span>
         <input
           required
+          placeholder="Password:"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}

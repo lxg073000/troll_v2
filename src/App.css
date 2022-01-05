@@ -9,12 +9,25 @@
   --step-3: clamp(2.27rem, 2.01rem + 1.29vw, 2.93rem);
   --step-4: clamp(2.72rem, 2.36rem + 1.83vw, 3.66rem);
   --step-5: clamp(3.27rem, 2.75rem + 2.56vw, 4.58rem);
+  --step-body-0: clamp(1rem, 0.83rem + 0.86vw, 1.31rem);
   --step-hero-0: clamp(7.38rem, 0.24rem + 35.69vw, 20.31rem);
   --font-title: "Aclonica", sans-serif;
   --font-banner: "Dosis", sans-serif;
   --font-body: "Fauna One", serif;
   --font-body: "Bellefair", serif;
+  --font-body: "EB Garamond", serif;
+  --font-body: "Cormorant Garamond", serif;
   --font-alt: "Staatliches", cursive;
+  --font-alt2: "Bree Serif", serif;
+  --green-dark: #111812;
+  --green-mid: #283a2c;
+  --green-mid: #628a68;
+  --green-light: #5f8a69;
+  --green-light-neutral: #889990;
+  --green-alt: #009523;
+  --neutral-black: #141414;
+  --neutral-mid: #8c7f4b;
+  --neutral-light: #cec9b6;
 }
 
 .App {
@@ -22,7 +35,7 @@
 }
 .App .container {
   flex-grow: 1;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 .fade {

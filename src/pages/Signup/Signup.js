@@ -43,6 +43,7 @@ export default function Signup() {
         <span>email:</span>
         <input
           required
+          placeholder="Email:"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -52,6 +53,7 @@ export default function Signup() {
         <span>password:</span>
         <input
           required
+          placeholder="Password:"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
@@ -61,6 +63,7 @@ export default function Signup() {
         <span>display name:</span>
         <input
           required
+          placeholder="Display name:"
           type="text"
           onChange={(e) => setDisplayName(e.target.value)}
           value={displayName}

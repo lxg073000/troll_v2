@@ -4,7 +4,7 @@
   position: fixed;
   box-sizing: border-box;
   z-index: 10000;
-  background: #23320b;
+  background: #111812;
   color: #eee;
 }
 .navbar ul {
@@ -16,6 +16,7 @@
 .navbar .logo {
   font-weight: bold;
   font-family: var(--font-title);
+  font-size: var(--step-2);
 
   letter-spacing: 1px;
   display: flex;
@@ -31,4 +32,13 @@
   text-decoration: none;
   margin-right: 20px;
   color: #eee;
+  border: none;
+}
+.nav-link {
+  background: var(--green-light);
+  padding: 6px 31px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  color: white;
+  border-color: var(--green-dark);
 }

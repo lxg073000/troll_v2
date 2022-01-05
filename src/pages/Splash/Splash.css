@@ -12,21 +12,42 @@
   display: grid;
   place-content: center;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 section {
   height: 100vh;
-  position: relative;
+  position: sticky;
+  top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #eee;
-  text-shadow: 1px 1px 3px #0000003d;
   padding: 0 var(--step-6);
   text-align: center;
   background: rgb(51, 51, 51);
   background-size: cover;
   background-position: center;
-  background-blend-mode: overlay;
+  background-blend-mode: difference;
+  background-color: #111812;
+}
+section:not(.hero)::before {
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  isolation: inherit;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 5%,
+    rgba(0, 0, 0, 0) 64%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
 }
 
 .feature:nth-child(2) {
@@ -40,9 +61,10 @@ section {
 } */
 
 .box > h1 {
-  font-size: var(--step-3);
+  font-size: var(--step-4);
   line-height: 1;
   font-weight: bolder;
+  color: beige;
 }
 .box > p {
   margin-top: 1.5em;
@@ -62,17 +84,80 @@ section {
 .hero h1 {
   font-size: var(--step-hero-0);
   font-family: var(--font-title);
+  text-shadow: 2px 2px 8px #0000003b, -2px 0px 11px #00000024;
+  color: #eee;
 }
 
 .feature h1 {
-  font-family: var(--font-alt);
+  font-family: var(--font-body);
   letter-spacing: 1px;
   word-spacing: 3px;
   font-weight: 300;
+  color: var(--primary2-color);
+}
+
+section.testimonal::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transform: translateY(100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 5%,
+    rgba(0, 0, 0, 0) 64%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.testimonal {
+  height: 50vh;
+  position: sticky;
+  top: 25%;
+  margin-bottom: 64rem;
+}
+
+.testimonal.demo {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  margin-bottom: 0;
+}
+
+section.cta {
+  background-blend-mode: color-dodge;
 }
 
 @media screen and (max-width: 400px) {
   .splash {
     flex-direction: column;
   }
+}
+
+.testimonal.btn,
+.navlink.btn {
+  background: var(--green-light);
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  border: 1px solid var(--green-dark);
+  text-decoration: none;
+}
+
+.cta > .box > .nav-link.btn {
+  background: var(--green-light);
+  padding: 18px 25px;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid var(--green-dark);
+  font-size: var(--step-1);
+  margin: 1em;
+  font-weight: bolder;
+}
+.cta > .box > .nav-link.btn:hover {
+  background: var(--primary-color);
 }

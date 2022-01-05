@@ -27,3 +27,6 @@
 .project-filter button.active {
   color: var(--primary-color);
 }
+.dashboard {
+  padding: 1em;
+}

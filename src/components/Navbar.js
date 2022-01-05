@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Navbar.css";
 
 import { useLogout } from "../hooks/useLogout";
@@ -8,31 +9,38 @@ import { useAuthContext } from "../hooks/useAuthContext";
 export default function Navbar() {
   const { logout, error, isPending } = useLogout();
   const { user } = useAuthContext();
+
   return (
     <div className="navbar">
       <ul>
         <li className="logo">
-          <span>Troll</span>
+          <Link to="/">
+            <span>Troll</span>
+          </Link>
         </li>
         {!user && (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link className="nav-link btn" to="/login">
+                Login
+              </Link>
             </li>
             <li>
-              <Link to="/signup">Signup</Link>
+              <Link className="nav-link btn" to="/signup">
+                Signup
+              </Link>
             </li>
           </>
         )}
         {user && (
           <li>
             {isPending && (
-              <button className="btn" disabled>
+              <button className="nav-link btn" disabled>
                 logging out
               </button>
             )}
             {!isPending && (
-              <button className="btn" onClick={logout}>
+              <button className="nav-link btn" onClick={logout}>
                 Logout
               </button>
             )}

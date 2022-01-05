@@ -23,6 +23,7 @@ import Splash from "./pages/Splash/Splash";
 //componenets
 
 function App() {
+  window.document.title = "Troll";
   const { user, authIsReady } = useAuthContext();
   const pageY = (e) => {
     return e.pageY <= document.body.clientHeight * 0.99 ? downArrow : upArrow;
