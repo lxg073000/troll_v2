@@ -32,13 +32,17 @@
   text-decoration: none;
   margin-right: 20px;
   color: #eee;
-  border: none;
 }
 .nav-link {
-  background: var(--green-light);
+  background: transparent;
   padding: 6px 31px;
   border-radius: 4px;
   font-family: var(--font-body);
   color: white;
-  border-color: var(--green-dark);
+  border: none;
+  border-bottom: 1px solid;
+  border-color: var(--green-light);
+}
+.nav-link:hover {
+  background: var(--green-light);
 }
