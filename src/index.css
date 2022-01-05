@@ -12,6 +12,7 @@
 /* base styles */
 body {
   font-family: Poppins, sans-serif;
+  font-family: var(--font-body);
   margin: 0;
   font-size: 1.1em;
   background: var(--bg-color);

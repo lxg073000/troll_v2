@@ -1,8 +1,11 @@
 .navbar {
   width: 100%;
-  padding: 30px 0;
+  padding: 1rem 1.5rem;
+  position: fixed;
   box-sizing: border-box;
-  margin-bottom: 80px;
+  z-index: 10000;
+  background: #23320b;
+  color: #eee;
 }
 .navbar ul {
   display: flex;
@@ -12,7 +15,8 @@
 }
 .navbar .logo {
   font-weight: bold;
-  color: var(--heading-color);
+  font-family: var(--font-title);
+
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -24,7 +28,7 @@
   width: 36px;
 }
 .navbar a {
-  color: #333;
   text-decoration: none;
   margin-right: 20px;
+  color: #eee;
 }

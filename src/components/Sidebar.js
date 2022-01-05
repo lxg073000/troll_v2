@@ -19,13 +19,13 @@ export default function Sidebar() {
         <nav className="links">
           <ul>
             <li>
-              <NavLink to="/">
+              <NavLink to="/dashboard">
                 <img src={dashboard_icon} alt="dashboard icon" />
                 <span>Dashboard</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="projects/create">
+              <NavLink to="/projects/create">
                 <img src={add_icon} alt="add projecticon" />
                 <span>New Project</span>
               </NavLink>

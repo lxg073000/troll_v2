@@ -8,7 +8,7 @@ export default function List({ projects }) {
     <div className="list project">
       {!projects.length && <p className="empty">No projects were found.</p>}
       {projects.map((project) => (
-        <Link to={`projects/${project.id}`} key={project.id}>
+        <Link to={`/projects/${project.id}`} key={project.id}>
           <div className="top">
             <Avatar photoURL={project.createdBy.photoURL} />
             <h4>{project.name}</h4>

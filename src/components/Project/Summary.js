@@ -20,7 +20,7 @@ export default function Summary({ project }) {
   };
   const handleClick = () => {
     deleteDocument(project.id);
-    navigate("/");
+    navigate("/dashboard");
   };
   return (
     <div>

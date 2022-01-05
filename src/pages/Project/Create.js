@@ -37,7 +37,7 @@ export default function Create() {
 
   // Observe response state for redirect & error handling
   useEffect(() => {
-    if (response.success === true) navigate.current("/");
+    if (response.success === true) navigate.current("/dashboard");
     if (response.error) setFormError(response.error.message);
   }, [response]);
 
